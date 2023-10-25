@@ -18,7 +18,7 @@ from django.template.response import SimpleTemplateResponse
 from django.utils.cache import cc_delim_re
 from django.utils.cache import get_max_age
 from django.utils.cache import has_vary_header
-from django.utils.cache import learn_cache_key
+from wagtailcache.overwrites import learn_cache_key
 from django.utils.cache import patch_response_headers
 from django.utils.deprecation import MiddlewareMixin
 from wagtail import hooks
