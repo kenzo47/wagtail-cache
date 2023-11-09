@@ -32,6 +32,7 @@ def index(request):
 def clear(request):
     """
     Clear the cache and redirect back to the admin settings page.
+    Ignores the sitemapcache key, which is used by the sitemap generator.
     """
-    clear_cache()
+    clear_cache(urls=[r"^(?!.*sitemapcache).*"])
     return HttpResponseRedirect(reverse("wagtailcache_admin:index"))
