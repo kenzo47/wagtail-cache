@@ -13,13 +13,12 @@ from wagtailcache import urls
 
 class CacheMenuItem(MenuItem):
     """
-    Registers wagtail-cache in wagtail admin for the first superuser.
-    The user with ID 1 is the default superuser created by Django.
+    Only show the cache menu item to superusers.
     """
 
     def is_shown(self, request):
         user = request.user
-        return user.is_superuser and user.id == 1
+        return user.is_superuser
 
 
 @hooks.register("register_admin_urls")
